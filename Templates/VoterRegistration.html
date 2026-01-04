@@ -1,0 +1,51 @@
+{% extends "Common.html" %}
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-6 form-group">
+                <input type="text" name="name" class="form-control border-0 p-4" placeholder="Voter Name" required="required" />
+            </div>
+            <!-- dob -->
+            <div class="col-6 form-group">
+                <input type="date" name="dob"    class="form-control border-0 p-4" placeholder="Date of Birth" required="required" />
+            </div>
+            <!-- address -->
+            <div class="col-6 form-group">
+                <input type="text" name="address" class="form-control border-0 p-4" placeholder="Address" required="required" />
+            </div>
+            <div class="col-6 form-group">
+                <input type="email" name="email" class="form-control border-0 p-4" placeholder="Email Address" required="required" />
+            </div>
+            <!-- photo   -->
+            <div class="col-6 form-group">
+                <input type="file" name="photo" class="form-control border-0 p-4" placeholder="Photo" required="required" />
+            </div>
+            <!-- voter ID -->
+            <div class="col-6 form-group">
+                <input type="text" name="voterid" class="form-control border-0 p-4" placeholder="Voter ID" required="required" />
+            </div>
+            <!-- proof   -->
+            <div class="col-6 form-group">
+                <input type="file" name="voteridproof" class="form-control border-0 p-4" placeholder="Proof" required="required" />
+            </div>
+            <div class="col-6 form-group">
+                <input type="password" name="password" class="form-control border-0 p-4" placeholder="Password" required="required" />
+            </div>
+            <div class="col-12 form-group">
+                <button class="btn btn-primary btn-block border-0 py-3" name="Sub" type="submit">Register</button> 
+            </div>
+            <div class="col-12 form-group">
+                <button class="btn btn-primary btn-block border-0 py-3" name="cap" type="submit">Capture</button> 
+            </div>
+        </div>
+    </form>
+        {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

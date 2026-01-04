@@ -1,0 +1,22 @@
+{% extends "admincommon.html" %}
+{% block content %}
+<h2>View Elections  </h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Election Name</th>
+            <th>Date of Election</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for election in elections %}
+        <tr>
+            <td>{{ election.electionname }}</td>
+            <td>{{ election.dateofelection }}</td>
+            <td>{{ election.description }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "admincommon.html" %}
+{% block content %}
+<h2>View voters</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Voter Name</th>
+            <th>DOB</th>
+            
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for voter in voters %}
+        <tr>
+            <td>{{ voter.name }}</td>
+            <td>{{ voter.dob }}</td>
+            
+            <td>{{ voter.address }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

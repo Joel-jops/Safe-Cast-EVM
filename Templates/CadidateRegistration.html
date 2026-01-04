@@ -1,0 +1,54 @@
+{% extends "Common.html" %}
+{% block content %}
+<!-- message -->
+
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-6 form-group">
+                <input type="text" name="name" class="form-control border-0 p-4" placeholder="Candidate Name" required="required" />
+            </div>
+            <div class="col-6 form-group">
+                <input type="text" name="party" class="form-control border-0 p-4" placeholder="Party Name" required="required" />    
+            </div>
+            <!-- dob -->
+            <div class="col-6 form-group">
+                <input type="date" name="dob" class="form-control border-0 p-4" placeholder="Date of Birth" required="required" />
+            </div>
+            <!-- address -->
+            <div class="col-6 form-group">
+                <input type="text" name="address" class="form-control border-0 p-4" placeholder="Address" required="required" />
+            </div>
+            <div class="col-6 form-group">
+                <input type="text" name="voterid" class="form-control border-0 p-4" placeholder="Voter ID" required="required" />
+            </div>
+            <div class="col-6 form-group">
+                <input type="file" name="proof" class="form-control border-0 p-4" placeholder="Proof" required="required" />
+            </div>
+            <!-- photo   -->
+            <div class="col-6 form-group">
+                <input type="file" name="photo" class="form-control border-0 p-4" placeholder="Photo" required="required" />
+            </div>
+            <!-- symbol -->
+            <div class="col-6 form-group">
+                <input type="file" name="symbol" class="form-control border-0 p-4" placeholder="Symbol" required="required" />
+            </div>
+            <!-- password -->
+            <div class="col-6 form-group">
+                <input type="password" name="password" class="form-control border-0 p-4" placeholder="Password" required="required" />
+            </div>
+            <div class="col-12 form-group">
+                <button class="btn btn-primary btn-block border-0 py-3" type="submit">Register</button> 
+            </div>
+        </div>
+    </form>
+     {% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+        </div>
+    {% endfor %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "voterhome.html" %}
+{% block content %}
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endfor %}
+{% endif %}
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-12 form-group">
+            <button class="btn btn-primary btn-block border-0 py-3" type="submit">Start Voting</button> 
+        </div>
+    </div>
+</form>
+{% endblock %}

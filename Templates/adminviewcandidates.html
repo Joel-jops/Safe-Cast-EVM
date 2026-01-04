@@ -1,0 +1,26 @@
+{% extends "admincommon.html" %}
+{% block content %}
+<h2>View Candidates</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Candidate Name</th>
+            <th>Party</th>
+            <th>Symbol</th>
+            <th>Address</th>
+            <th>Photo</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for candidate in candidates %}
+        <tr>
+            <td>{{ candidate.name }}</td>
+            <td>{{ candidate.party }}</td>
+            <td>{{ candidate.symbol }}</td>
+            <td>{{ candidate.address }}</td>
+            <td><img src="{{ candidate.photo.url }}" alt="Candidate Photo" width="100"></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

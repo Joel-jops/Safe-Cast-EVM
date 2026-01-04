@@ -1,0 +1,29 @@
+{% extends 'admincommon.html' %}
+{% block content %}
+<h2>Election Results</h2>
+<table class="table table-bordered">
+    
+    <tr>
+        <th>Candidate</th>
+        <th>Votes</th>
+    </tr>
+    {% for c, v in results.items %}
+    <tr>
+        <td>{{ c }}</td>
+        <td>{{ v }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% if is_draw %}
+    <h2>🤝 DRAW between:
+        {% for w in winner %}
+            {{ w }}{% if not forloop.last %}, {% endif %}
+        {% endfor %}
+        ({{ max_votes }} votes each)
+    </h2>
+{% else %}
+    <h2>🏆 Winner: {{ winner }} ({{ max_votes }} votes)</h2>
+{% endif %}
+
+{% endblock %}
